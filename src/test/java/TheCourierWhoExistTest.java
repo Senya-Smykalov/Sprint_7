@@ -1,10 +1,11 @@
 import io.restassured.RestAssured;
-import org.example.OrdersClient;
+import org.example.CourierClient;
 import org.junit.Before;
 import org.junit.Test;
 
-public class GetOrdersTest {
-    OrdersClient ordersClient = new OrdersClient();
+public class TheCourierWhoExistTest {
+
+    CourierClient courierClient = new CourierClient();
 
     @Before
     public void setUp() {
@@ -12,8 +13,7 @@ public class GetOrdersTest {
     }
 
     @Test
-    public void getOrders() {
-        ordersClient.getOrders();
+    public void theCourierWhoExist() {
+        courierClient.loginWithoutfield();
     }
-
 }

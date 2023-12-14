@@ -5,6 +5,24 @@ public class Courier {
     private String password;
     private String firstName;
 
+    public Courier() {
+    }
+
+    public Courier(String login) {
+        this.login = login;
+    }
+
+    public Courier(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
+
+    public Courier(String login, String password, String firstName) {
+        this.login = login;
+        this.password = password;
+        this.firstName = firstName;
+    }
+
     public String getLogin() {
         return login;
     }
@@ -29,24 +47,6 @@ public class Courier {
         this.firstName = firstName;
     }
 
-    public Courier() {
-    }
-
-    public Courier(String login) {
-        this.login = login;
-    }
-
-    public Courier(String login, String password) {
-        this.login = login;
-        this.password = password;
-    }
-
-    public Courier(String login, String password, String firstName) {
-        this.login = login;
-        this.password = password;
-        this.firstName = firstName;
-    }
-
     public static class Order {
         private String firstName;
         private String lastName;
@@ -57,6 +57,18 @@ public class Courier {
         private String deliveryDate;
         private String comment;
         private List<String> color;
+
+        public Order(String firstName, String lastName, String address, int metroStation, String phone, int rentTime, String deliveryDate, String comment, List<String> color) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.address = address;
+            this.metroStation = metroStation;
+            this.phone = phone;
+            this.rentTime = rentTime;
+            this.deliveryDate = deliveryDate;
+            this.comment = comment;
+            this.color = color;
+        }
 
         public String getFirstName() {
             return firstName;
@@ -127,18 +139,6 @@ public class Courier {
         }
 
         public void setColor(List<String> color) {
-            this.color = color;
-        }
-
-        public Order(String firstName, String lastName, String address, int metroStation, String phone, int rentTime, String deliveryDate, String comment, List<String> color) {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.address = address;
-            this.metroStation = metroStation;
-            this.phone = phone;
-            this.rentTime = rentTime;
-            this.deliveryDate = deliveryDate;
-            this.comment = comment;
             this.color = color;
         }
     }

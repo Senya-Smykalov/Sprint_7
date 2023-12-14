@@ -6,8 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CreateCourierTests {
-    private static String baseURI = "http://qa-scooter.praktikum-services.ru/";
+public class CourierReplayTest {
     CourierClient courierClient = new CourierClient();
 
     public static int loginWithCourierId() {
@@ -20,15 +19,15 @@ public class CreateCourierTests {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = baseURI;
+        RestAssured.baseURI = "https://qa-scooter.praktikum-services.ru/";
+        CourierClient.createCourier();
     }
 
-    @DisplayName("Тест - проверка создания курьера ")
-    @Description("Список проверок : создание курьера(успешное)")
+    @DisplayName("Негативная проверка - Создание дубля курьера")
+    @Description("Попытка создания курьера с повторящимися данными")
     @Test
-
-    public void createCourier() {
-        CourierClient.createCourier();
+    public void createCourierWithoutRequiredFields() {
+        CourierClient.courierReplay();
     }
 
     @After
@@ -38,3 +37,4 @@ public class CreateCourierTests {
     }
 
 }
+

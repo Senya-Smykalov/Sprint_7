@@ -1,13 +1,10 @@
-import io.qameta.allure.Description;
-import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import org.example.CourierClient;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CreateCourierTests {
-    private static String baseURI = "http://qa-scooter.praktikum-services.ru/";
+public class LoginCourierFalseTest {
     CourierClient courierClient = new CourierClient();
 
     public static int loginWithCourierId() {
@@ -20,15 +17,13 @@ public class CreateCourierTests {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = baseURI;
+        RestAssured.baseURI = "https://qa-scooter.praktikum-services.ru/";
+        CourierClient.createCourier();// Предусловия - необходимо создать курьера
     }
 
-    @DisplayName("Тест - проверка создания курьера ")
-    @Description("Список проверок : создание курьера(успешное)")
     @Test
-
-    public void createCourier() {
-        CourierClient.createCourier();
+    public void loginCourierFalse() {
+        courierClient.incorrectLogin();
     }
 
     @After
@@ -38,3 +33,4 @@ public class CreateCourierTests {
     }
 
 }
+
